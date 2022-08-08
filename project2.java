@@ -1,60 +1,54 @@
-package core.java;
+
+package corejava;
 
 import java.util.*;
 
 class Books {
 	String bookname;
 	int cost;
+	
 	String Author;
 	static int count = 0;
 
 	Books() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Doctor name:");
+		System.out.println("Author name:");
 		Author = sc.nextLine();
 	}
 
 	public void display() {
-		System.out.println("Doctor Name:" + bookname + "\nCost:" + cost + "\nDoctor name:" + Author);
+		System.out.println("Book Name:" + bookname + "\nCost:" + cost + "\nAuthor name:" + Author);
 	}
+	
 
-	public void raisecost() {
-
-	}
+	
 }
 
-class CompetetiveExambooks extends Books {
-	public CompetetiveExambooks() {
+class Comic extends Books {
+	public Comic () {
 		cost = 1000;
-		bookname = "UPSC";
+		bookname = "watchman";
 	}
 
-	public void raisecost() {
-		cost = cost + 500;
-	}
+
 
 }
 
-class Academic extends Books {
-	public Academic() {
+class Novel extends Books {
+	public Novel() {
 		cost = 500;
-		bookname = "Java";
+		bookname = "Daytripper";
 	}
 
-	public void raisecost() {
-		cost = cost + 200;
-	}
+
 }
 
-class Entertain extends Books {
-	public Entertain() {
+class Fiction extends Books {
+	public Fiction() {
 		cost = 300;
-		bookname = "Entertainment";
+		bookname = "Maus";
 	}
 
-	public void raisecost() {
-		cost = cost + 200;
-	}
 }
 
 public class project2{
@@ -64,10 +58,9 @@ public class project2{
 		ArrayList<Books> list = new ArrayList<Books>();
 		do {
 			System.out.println("*****************************");
-			System.out.println("1.Create Profile");
-			System.out.println("2.Display Profile");
-			System.out.println("3.RaiseCost");
-			System.out.println("4.Exit");
+			System.out.println("1.Create ");
+			System.out.println("2.Display ");
+			System.out.println("3.Exit");
 			System.out.println("*********************************");
 			System.out.println("Enter choice:");
 			Scanner sc1 = new Scanner(System.in);
@@ -75,9 +68,9 @@ public class project2{
 			if (n1 == 1) {
 				do {
 					System.out.println("*****************************");
-					System.out.println("1.Cardiologist");
-					System.out.println("2.Neurologist");
-					System.out.println("3.Plastic Surgen");
+					System.out.println("1.Comic");
+					System.out.println("2.Novel");
+					System.out.println("3.Fiction");
 					System.out.println("4.Exit");
 					System.out.println("*********************************");
 					System.out.println("Enter choice:");
@@ -85,13 +78,13 @@ public class project2{
 					n2 = sc2.nextInt();
 					switch (n2) {
 					case 1:
-						list.add(new CompetetiveExambooks());
+						list.add(new Comic());
 						break;
 					case 2:
-						list.add(new Academic());
+						list.add(new Novel());
 						break;
 					case 3:
-						list.add(new Entertain());
+						list.add(new Fiction());
 						break;
 					}
 				} while (n2 != 4);
@@ -104,15 +97,9 @@ public class project2{
 					b.display();
 				}
 			}
-			if (n1 == 3) {
-				Iterator i = list.iterator();
-				while (i.hasNext()) {
-					Books b = (Books) i.next();
-					b.raisecost();
-				}
-			}
-		} while (n1 != 4);
-		System.out.println("Number of books created:" + Books.count);
+		
+		} while (n1==3);
+		System.out.println("thank you");
 
 	}
 
